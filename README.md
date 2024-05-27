@@ -12,4 +12,4 @@ For this recipe we need to store credentials used by the powershell in a gcp buc
   "prd_pass": "put password for prd user here"
 }
 
-# In the repo there is a .ps1 powershell script that will be running on the node that needs to cert update. This powershell will be part of the recipe in the .rb file, which will be added to the runlist for each node's cookbook.
+# In the repo there is a .ps1 powershell script that will be running on the node that needs to update cert. This powershell will be part of the recipe in the .rb file, which will be added to the runlist for each node's cookbook.
