@@ -1,0 +1,21 @@
+Following are the chef commands that can be run from the node itself.
+# Run the chef-client utility on the node this will update the client with new recipe
+chef-client
+
+# Below code will test the run and tell you what recipes will be executed.
+chef-client --why-run
+
+# Below code will run all the recipes in the cookbook
+chef-client
+
+#  For running just the recipe for ssl cert use the below code
+#  chef-client -o 'recipe[cookbook_name::recipe_name]'
+chef-client -o 'recipe[bl_ng_role_sql_server::sslcert]'
+
+Alternately if you don’t want to run this from the node and want to run from workstation then use the below script.
+# use the below code to test the recipe from worksation to see what the recipe 
+# would do on execution
+knife ssh 'name:NODENAME' 'sudo chef-client -o "recipe[bl_ng_role_sql_server::sslcert]" --why-run' -i /path/to/ssh/key -x SSH-USERNAME
+
+# below code for actual run 
+knife ssh 'name:NODENAME' 'sudo chef-client -o "recipe[bl_ng_role_sql_server::sslcert]"' -i /path/to/ssh/key -x SSH-USERNAME
